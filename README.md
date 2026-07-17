@@ -1,6 +1,8 @@
 # Hi, I'm Khayllane Nyambir
 
-Software developer from Mozambique building practical web applications, Python tools, and community-focused products.
+Full-stack developer from Mozambique building practical web applications and digital products with a clear purpose.
+
+I enjoy turning real problems into thoughtful, responsive experiences—from community tools that work with limited connectivity to polished platforms for businesses. I am currently open to internships, collaborative projects, and my first open-source contributions.
 
 <p align="center">
   <picture>
@@ -10,48 +12,65 @@ Software developer from Mozambique building practical web applications, Python t
   </picture>
 </p>
 
-## About Me
-
-I care about software that solves clear problems and remains useful under real-world constraints. My current work spans responsive web applications, offline-first experiences, and maintainable Python automation.
-
-- Based in Mozambique and interested in locally relevant technology
-- Focused on accessible interfaces, reliable workflows, and clean implementation
-- Open to collaborating on useful web products and developer tools
-
-## Featured Projects
+## Selected Work
 
 ### [AjudaCheia](https://github.com/nyambirkhayllane-svg/ajuda-cheia)
 
-Mobile-first flood-response application designed for communities in Mozambique. It connects people requesting urgent help with volunteers and supports family reunification when connectivity is limited.
+Community flood-response PWA built for Mozambique. It connects people requesting urgent help with volunteers and supports family reunification, including when connectivity is limited.
 
 - SOS requests with location, urgency, contact details, and specific needs
-- Volunteer filtering and end-to-end help confirmation
-- Missing-person registration and family search
-- Installable PWA with offline caching and local persistence
+- Volunteer filtering, help confirmation, and missing-person search
+- Installable, mobile-first experience with offline caching and local persistence
 
-`React` · `Vite` · `PWA` · `Responsive Design` · `Offline-first`
+`React` · `Vite` · `PWA` · `Offline-first`<br>
+[Repository](https://github.com/nyambirkhayllane-svg/ajuda-cheia) · [Live application](https://ajuda-cheia.vercel.app) · **Completed, with improvements ongoing**
 
-### [Terminal Profile](https://github.com/nyambirkhayllane-svg/nyambirkhayllane-svg)
+### [Quinta Jazz Clube](https://github.com/nyambirkhayllane-svg/quinta-jazz-clube)
+
+Responsive event-venue platform designed to present services, showcase the space, and guide prospective clients toward requesting a quotation.
+
+- Interactive event gallery, service presentation, FAQ, and contact journey
+- Responsive navigation and section-aware browsing
+- Motion-led interface with reusable, validated form components
+
+`Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Framer Motion`<br>
+[Repository](https://github.com/nyambirkhayllane-svg/quinta-jazz-clube) · **Completed**
+
+### [Personal Portfolio](https://github.com/nyambirkhayllane-svg/My-portfolio)
+
+Personal portfolio for presenting my work, skills, experience, and contact information in a responsive, theme-aware interface.
+
+`Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Framer Motion`<br>
+[Repository](https://github.com/nyambirkhayllane-svg/My-portfolio) · **Completed**
+
+### Salon Booking System
+
+Private full-stack project currently in development. More details will be shared when it is ready for a public release.
+
+**In progress**
+
+### [Terminal Profile Generator](https://github.com/nyambirkhayllane-svg/nyambirkhayllane-svg)
 
 Python tooling that converts a photograph into ASCII art and generates compact, accessible SVG profile banners with automatic light and dark themes.
 
-`Python` · `Pillow` · `SVG` · `GitHub Profile`
+`Python` · `Pillow` · `SVG` · **Completed**
 
-## Tech Stack
+## Technologies
 
-**Application development**
+**Building with**
 
+![Next.js](https://img.shields.io/badge/Next.js-0d1117?style=flat-square&logo=nextdotjs&logoColor=ffffff)
 ![React](https://img.shields.io/badge/React-0d1117?style=flat-square&logo=react&logoColor=61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=3178c6)
 ![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=flat-square&logo=javascript&logoColor=f7df1e)
-![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=flat-square&logo=html5&logoColor=e34f26)
-![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=flat-square&logo=css3&logoColor=1572b6)
-![Vite](https://img.shields.io/badge/Vite-0d1117?style=flat-square&logo=vite&logoColor=646cff)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0d1117?style=flat-square&logo=tailwindcss&logoColor=06b6d4)
 
-**Tools and workflow**
+**Tools**
 
 ![Python](https://img.shields.io/badge/Python-0d1117?style=flat-square&logo=python&logoColor=58a6ff)
 ![Git](https://img.shields.io/badge/Git-0d1117?style=flat-square&logo=git&logoColor=f05032)
 ![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=ffffff)
+![Vite](https://img.shields.io/badge/Vite-0d1117?style=flat-square&logo=vite&logoColor=646cff)
 
 ## GitHub Activity
 
@@ -60,9 +79,11 @@ Python tooling that converts a photograph into ASCII art and generates compact, 
   <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nyambirkhayllane-svg&layout=compact&hide_border=true&theme=transparent" alt="Khayllane's most used languages" />
 </p>
 
-## Contact
+## Let's Connect
 
-[GitHub](https://github.com/nyambirkhayllane-svg) · [Email](mailto:nyambirkhayllane@gmail.com) · Mozambique
+I am interested in internships, learning through collaboration, and contributing to open-source projects.
+
+[LinkedIn](https://www.linkedin.com/in/khayllane-nyambir-7a748820a/) · [GitHub](https://github.com/nyambirkhayllane-svg) · [Email](mailto:nyambirkhayllane@gmail.com) · Mozambique
 
 <details>
 <summary>How the terminal banner is generated</summary>
