@@ -52,6 +52,13 @@ The challenge was grounded in flooding in Mozambique. People can become isolated
 
 A family member owns Quinta Jazz Clube, an event venue. I built this platform to help the business gain visibility and present the quality of its services online—not as a hypothetical exercise, but as software for a real business.
 
+<p align="center">
+  <a href="https://github.com/nyambirkhayllane-svg/quinta-jazz-clube">
+    <img src="./assets/projects/quinta-jazz-clube-home.webp" width="92%" alt="Quinta Jazz Clube home page presenting the family event venue and visit booking" />
+  </a><br>
+  <sub>Quinta Jazz Clube home page</sub>
+</p>
+
 The experience includes an interactive gallery, service presentation, FAQ, responsive navigation, and a clear path for prospective clients to request a quotation.
 
 `Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Framer Motion`<br>
