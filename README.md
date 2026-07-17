@@ -1,5 +1,8 @@
-## Hi there 👋
+# Olá, eu sou Khayllane Nyambir
 
+<p align="center">
+  <img src="./profile.svg" alt="Perfil de Khayllane Nyambir" />
+</p>
 <!--
 **nyambirkhayllane-svg/nyambirkhayllane-svg** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

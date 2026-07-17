@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1104" viewBox="0 0 1000 1104">
+<style>
+
+        .background {
+            fill: #0d1117;
+        }
+
+        .terminal-text {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .portrait {
+            fill: #c9d1d9;
+        }
+
+        .label {
+            fill: #58a6ff;
+            font-weight: bold;
+        }
+
+        .value {
+            fill: #c9d1d9;
+        }
+
+        .muted {
+            fill: #8b949e;
+        }
+
+        .cursor {
+            fill: #58a6ff;
+            animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        
+</style>
+<rect class="background" width="1000" height="1104" rx="12"/>
+<text class="terminal-text portrait" x="30" y="44">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="62">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="80">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="98">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="116">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="134">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="152">                                                                                </text>
+<text class="terminal-text portrait" x="30" y="170">                                  .-=+**+++*#%%#=:.                             </text>
+<text class="terminal-text portrait" x="30" y="188">                                =#%@@%##%%%@@@@@@%#+-.                          </text>
+<text class="terminal-text portrait" x="30" y="206">                              =%@%#***+++++*%%%@%%@@%#-                         </text>
+<text class="terminal-text portrait" x="30" y="224">                            =#@%**++========+#%@%#%%#%%*:                       </text>
+<text class="terminal-text portrait" x="30" y="242">                           +@@#*+======----==+#%%%%%%%@%%-                      </text>
+<text class="terminal-text portrait" x="30" y="260">                          =@%#+++====-::.:-===++%%%%%%@%%%=                     </text>
+<text class="terminal-text portrait" x="30" y="278">                         .%@#*++===---....:--===*%%%%#%%%#@+                    </text>
+<text class="terminal-text portrait" x="30" y="296">                         +@%*++====---::::--=====%@@%%%@%%%%-                   </text>
+<text class="terminal-text portrait" x="30" y="314">                        .%@#++*++================*@@@%@@@%%@*                   </text>
+<text class="terminal-text portrait" x="30" y="332">                        :@@#******+====+***+=+++++#@@%%%@%%@@:                  </text>
+<text class="terminal-text portrait" x="30" y="350">                        =@%#****###************#%%#@@%%%%%%@@*                  </text>
+<text class="terminal-text portrait" x="30" y="368">                       .#@#%*#####@%#%#==++****+%##%@@%%%@@%@%-                 </text>
+<text class="terminal-text portrait" x="30" y="386">                      .-@%#%*****+%+-=*:::::--=+#*=*@@@@@@@%%@+                 </text>
+<text class="terminal-text portrait" x="30" y="404">                      :+%%#%+====+#=--++::...:-++==+%@@%@@@%%@#:                </text>
+<text class="terminal-text portrait" x="30" y="422">                      --*%%#++++**==--===+=--=**==+*%@%@%@@@%%%=.               </text>
+<text class="terminal-text portrait" x="30" y="440">                      --#@@@******#*++++===+++===++*%@*%##@@@%@*=               </text>
+<text class="terminal-text portrait" x="30" y="458">                      -+%%@@%*++=+++===-::--====++**%@%%@%@@@%@@+.              </text>
+<text class="terminal-text portrait" x="30" y="476">                      ++@%%@@%**+*###*##*+====+++**#@@@@@@@@@%%@*.              </text>
+<text class="terminal-text portrait" x="30" y="494">                     :=*#%%@@@%**%%#*++*##*++++**#%%@@@@@@@@@@%@%-.             </text>
+<text class="terminal-text portrait" x="30" y="512">                     -:*#%@@@@@@####***##******#%%%#@@@@@@@@@@@@%+..            </text>
+<text class="terminal-text portrait" x="30" y="530">                     -=*%@@%@@@@@%%%%%#*+=++*#%%%#*#@@@@@@@@@@@#%#-             </text>
+<text class="terminal-text portrait" x="30" y="548">                     :+#@@%@@#@@@@@#*+====+*%@%#+++*%@@@@@@@@@@%%@#:            </text>
+<text class="terminal-text portrait" x="30" y="566">                     -+#%@@@@@%@@@@@%%###%%@%*+===++=#@@@@@@@@@@%%%+.           </text>
+<text class="terminal-text portrait" x="30" y="584">                    :-=%#%@@@@@@@@@@%@%@@@%*+=====-.-#%@@@@@@@@@@%@+:           </text>
+<text class="terminal-text portrait" x="30" y="602">                    -:*%@@%@@@@@@@@%@@@%%*+==--::..:###%%@@@@@@@@@@%:           </text>
+<text class="terminal-text portrait" x="30" y="620">                    .:*%@@%@@@@@@@@*+++=---::::....*#####%%%@@@@@@@@+.          </text>
+<text class="terminal-text portrait" x="30" y="638">                    :=%@@@@@@@@@%#*=--::::::::....+#######%%#%%%@@@@#=.         </text>
+<text class="terminal-text portrait" x="30" y="656">                   -*%%%@@@@@@@%#:.::::::::......=########%%%%#####%#*=.        </text>
+<text class="terminal-text portrait" x="30" y="674">              .:-=*%%@@@@%@@@%%%=...............:#########%%#%%%%#######*+=:    </text>
+<text class="terminal-text portrait" x="30" y="692">             +*##%%%@%@%@@@@%%##:...............*#########%%%%%########%####+   </text>
+<text class="terminal-text portrait" x="30" y="710">            +%###%%%@@@%@@@@%#%+...............=######%%%%####%#######%######-  </text>
+<text class="terminal-text portrait" x="30" y="728">           :####%%@%@@%@@@%%%##:..............:##############%%##############+  </text>
+<text class="terminal-text portrait" x="30" y="746">           =%##%%@@%@@@@@@%%##+...............*#############%%##########%%###*  </text>
+<text class="terminal-text portrait" x="30" y="764">           *%%%%%@%@@@@@@@%%##-..............=#############%%##########%%%###*. </text>
+<text class="terminal-text portrait" x="30" y="782">          .*%%%%@@@@@@@@%%%##*..............-#############%%########%%%%%%%%%#- </text>
+<text class="terminal-text portrait" x="30" y="800">          :#%%%%@@@@@@@@%%%#%=..............*############%%########%%%%%%%%%%%* </text>
+<text class="terminal-text portrait" x="30" y="818">          -%%%@@@%@@@@@%%%%##:.............+############%%########%%%%%%%%%%%%#:</text>
+<text class="terminal-text portrait" x="30" y="836">          +#%%@@@@%%@@%%%%#%+.............-############%%#########%%%%%%%%%%%%#+</text>
+<text class="terminal-text portrait" x="30" y="854">         .*%%@@%@@@@@%%%%%##-............:#############%####%%###%%%%%%%%%%%%%##</text>
+<text class="terminal-text portrait" x="30" y="872">         :%%@%@@@@@@%%%%%%#*.............+###########%%####%%%##%%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="890">       ..+%%%%@@@@@%%%%%%#%=............-############%####%%%%%%%%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="908">       .:+%%%%@%@@%%##%%%##-...........:############%####%%%%%%%%%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="926">       ::*@@@@@@%%%%##%%%%#:...........+###########%####%%%%%%%%@%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="944">       .-#@@@@@@@%%%###%%%*...........-################%%%%%%%%@@%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="962">       .=%@@@@@@%%%%###%%%+...........*################%%%%%%%%@@%%%%%%%%%%%%%%%</text>
+<text class="terminal-text portrait" x="30" y="980">       -+%@@@@@@%%%%#%%%%%*..........-################%%%%%%%%%@@%%%%%%%%%%%%%%%</text>
+<text class="terminal-text portrait" x="30" y="998">      :=+%%@@@@@%%%%%#%%%%*:::::....:*%####%###%#####%%%%%%%%%@@@%%%%%%%%%%%%%%%</text>
+<text class="terminal-text portrait" x="30" y="1016">     .-+*%@@@@@@%%%%%%%%%%#::::::::.-%%%%%%%%%%%#%%%%%%%%%%%%@@@@%%%%%%%%%%%%%%%</text>
+<text class="terminal-text portrait" x="30" y="1034">     .:*%%@@@@@@@%%%%%%%%%%-:::::::.+%%%%%%%%%%%%%%%%%%%%%%%@@@@@%%%%%%%%%%%%%%%</text>
+<text class="terminal-text portrait" x="30" y="1052">     .-*%@@@@@@@@%%%%%%%%%%+--::::::#%%%%%%%%%%%%%%%%%%%%%%@@@#+@%%%%%%%%%%%%%%#</text>
+<text class="terminal-text portrait" x="30" y="1070">    .:=*%@@@@@@@@@%%%%%%%%%#==-----=%%%%%%%%%%%%%%%%%%%%%%%@@@++@%%%%%%%%%%%%%%#</text>
+<text class="terminal-text label" x="620" y="90">nyambirkhayllane-svg</text>
+<text class="terminal-text muted" x="620" y="108">--------------------------------</text>
+<text class="terminal-text label" x="620" y="144">user:</text>
+<text class="terminal-text value" x="720" y="144">nyambirkhayllane-svg</text>
+<text class="terminal-text label" x="620" y="180">name:</text>
+<text class="terminal-text value" x="720" y="180">Khayllane Nyambir</text>
+<text class="terminal-text label" x="620" y="216">role:</text>
+<text class="terminal-text value" x="720" y="216">Developer</text>
+<text class="terminal-text label" x="620" y="252">location:</text>
+<text class="terminal-text value" x="720" y="252">Seu país</text>
+<text class="terminal-text label" x="620" y="288">email:</text>
+<text class="terminal-text value" x="720" y="288">seu-email@example.com</text>
+<text class="terminal-text label" x="620" y="324">github:</text>
+<text class="terminal-text value" x="720" y="324">github.com/nyambirkhayllane-svg</text>
+<text class="terminal-text label" x="620" y="380">$</text>
+<rect class="cursor" x="638" y="367" width="9" height="16"/>
+</svg>
