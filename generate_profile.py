@@ -2,45 +2,33 @@
 
 from __future__ import annotations
 
+import json
 import os
 from dataclasses import dataclass
 from html import escape
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 
+CONFIG_PATH = Path("profile.json")
 PORTRAIT_PATH = Path("portrait.txt")
 SVG_WIDTH, SVG_HEIGHT = 800, 360
 CONTENT_TOP, CONTENT_BOTTOM = 52, 344
 PORTRAIT_X, PORTRAIT_FONT_SIZE, PORTRAIT_LINE_HEIGHT = 24, 7.0, 7.0
-PANEL_X, VALUE_X = 390, 482
-TEXT_FONT_SIZE, TEXT_LINE_HEIGHT = 12, 26
+PANEL_X, TEXT_FONT_SIZE = 390, 11
 
 
 @dataclass(frozen=True)
 class Profile:
-    """Displayed profile data, optionally overridden with PROFILE_* variables."""
-
-    name: str = "Khayllane Nyambir"
-    username: str = "nyambirkhayllane-svg"
-    role: str = "Software Developer"
-    location: str = "Mozambique"
-    email: str = "nyambirkhayllane@gmail.com"
-
-    @classmethod
-    def from_environment(cls) -> "Profile":
-        defaults = cls()
-        names = ("name", "username", "role", "location", "email")
-        return cls(**{
-            name: os.getenv(f"PROFILE_{name.upper()}", getattr(defaults, name)).strip()
-            for name in names
-        })
+    name: str
+    username: str
+    role: str
+    location: str
+    email: str
 
 
 @dataclass(frozen=True)
 class Theme:
-    """Color tokens shared by every element in one SVG variant."""
-
     name: str
     background: str
     header: str
@@ -51,13 +39,65 @@ class Theme:
     border: str
 
 
-DARK = Theme("dark", "#0d1117", "#161b22", "#e6edf3", "#c9d1d9", "#58a6ff", "#8b949e", "#30363d")
-LIGHT = Theme("light", "#ffffff", "#f6f8fa", "#24292f", "#24292f", "#0969da", "#57606a", "#d0d7de")
-THEMES = (DARK, LIGHT)
+@dataclass(frozen=True)
+class Settings:
+    profile: Profile
+    terminal: tuple[tuple[str, str], ...]
+    links: dict[str, str]
+    themes: tuple[Theme, ...]
+
+
+def require_mapping(data: dict[str, Any], key: str) -> dict[str, Any]:
+    value = data.get(key)
+    if not isinstance(value, dict):
+        raise ValueError(f"Configuration field '{key}' must be an object")
+    return value
+
+
+def load_settings(path: Path = CONFIG_PATH) -> Settings:
+    """Load and validate changeable profile content from JSON."""
+    if not path.is_file():
+        raise FileNotFoundError(f"Configuration not found: {path.resolve()}")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"Invalid JSON in {path}: {error}") from error
+    if not isinstance(data, dict):
+        raise ValueError("Profile configuration must be a JSON object")
+
+    profile_data = require_mapping(data, "profile")
+    profile_fields = ("name", "username", "role", "location", "email")
+    profile_values = {}
+    for field in profile_fields:
+        value = os.getenv(f"PROFILE_{field.upper()}", str(profile_data.get(field, ""))).strip()
+        if not value:
+            raise ValueError(f"Profile field '{field}' cannot be empty")
+        profile_values[field] = value
+
+    terminal_data = data.get("terminal")
+    if not isinstance(terminal_data, list) or not terminal_data:
+        raise ValueError("Configuration field 'terminal' must be a non-empty list")
+    terminal = []
+    for index, entry in enumerate(terminal_data):
+        if not isinstance(entry, list) or len(entry) != 2 or not all(isinstance(item, str) and item for item in entry):
+            raise ValueError(f"Terminal entry {index} must contain a command and output")
+        terminal.append((entry[0], entry[1]))
+
+    theme_data = require_mapping(data, "themes")
+    color_fields = ("background", "header", "primary", "portrait", "accent", "muted", "border")
+    themes = []
+    for name in ("dark", "light"):
+        colors = require_mapping(theme_data, name)
+        missing = [field for field in color_fields if not isinstance(colors.get(field), str)]
+        if missing:
+            raise ValueError(f"Theme '{name}' is missing: {', '.join(missing)}")
+        themes.append(Theme(name=name, **{field: colors[field] for field in color_fields}))
+
+    links = require_mapping(data, "links")
+    return Settings(Profile(**profile_values), tuple(terminal), {str(k): str(v) for k, v in links.items()}, tuple(themes))
 
 
 def read_portrait(path: Path = PORTRAIT_PATH) -> list[str]:
-    """Read a non-empty UTF-8 portrait while preserving leading spaces."""
     if not path.is_file():
         raise FileNotFoundError(f"Portrait not found: {path.resolve()}")
     lines = path.read_text(encoding="utf-8").splitlines()
@@ -67,7 +107,6 @@ def read_portrait(path: Path = PORTRAIT_PATH) -> list[str]:
 
 
 def validate_portrait(lines: Iterable[str], max_width: int = 60) -> None:
-    """Reject portrait dimensions that cannot fit the shared card layout."""
     rows = list(lines)
     width = max(map(len, rows), default=0)
     final_baseline = CONTENT_TOP + 10 + (len(rows) - 1) * PORTRAIT_LINE_HEIGHT
@@ -86,77 +125,68 @@ def portrait_markup(lines: list[str]) -> str:
     return f'<text class="portrait" x="{PORTRAIT_X}" y="{CONTENT_TOP + 10}">{rows}</text>'
 
 
+def terminal_markup(entries: tuple[tuple[str, str], ...]) -> str:
+    """Render a compact shell transcript with consistent command spacing."""
+    y = CONTENT_TOP + 18
+    markup = []
+    for command, output in entries:
+        markup.append(f'<text class="prompt" x="{PANEL_X}" y="{y}">$ {escape(command)}</text>')
+        markup.append(f'<text class="value" x="{PANEL_X}" y="{y + 18}">{escape(output)}</text>')
+        y += 54
+    cursor_y = min(y - 11, CONTENT_BOTTOM - 14)
+    markup.append(f'<text class="prompt" x="{PANEL_X}" y="{cursor_y + 11}">$</text>')
+    markup.append(f'<rect class="cursor" x="{PANEL_X + 17}" y="{cursor_y}" width="7" height="14" rx="1"/>')
+    return "".join(markup)
+
+
 def theme_css(theme: Theme) -> str:
-    """Create compact class-based CSS from theme tokens."""
     return f"""
     .card{{fill:{theme.background};stroke:{theme.border};stroke-width:1}}
     .header{{fill:{theme.header}}}
-    .portrait,.label,.value,.prompt,.muted{{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;white-space:pre}}
+    .portrait,.value,.prompt,.muted{{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;white-space:pre}}
     .portrait{{fill:{theme.portrait};font-size:{PORTRAIT_FONT_SIZE}px}}
-    .label,.value,.prompt{{font-size:{TEXT_FONT_SIZE}px}}
-    .label,.prompt{{fill:{theme.accent};font-weight:600}}
-    .value{{fill:{theme.primary}}}.muted{{fill:{theme.muted};font-size:10px}}
+    .value,.prompt{{font-size:{TEXT_FONT_SIZE}px}}
+    .prompt{{fill:{theme.accent};font-weight:600}}.value{{fill:{theme.primary}}}
+    .muted{{fill:{theme.muted};font-size:10px}}
     .cursor{{fill:{theme.accent};animation:blink 1.1s steps(2,start) infinite}}
     @keyframes blink{{50%{{opacity:0}}}}
     @media (prefers-reduced-motion:reduce){{.cursor{{animation:none}}}}
     """
 
 
-def create_svg(portrait_lines: list[str], profile: Profile, theme: Theme) -> str:
-    """Render one theme using the shared layout and content."""
+def create_svg(portrait_lines: list[str], settings: Settings, theme: Theme) -> str:
     validate_portrait(portrait_lines)
-    fields = (
-        ("name", profile.name),
-        ("role", profile.role),
-        ("location", profile.location),
-        ("email", profile.email),
-        ("github", f"github.com/{profile.username}"),
-    )
-    row_y = CONTENT_TOP + 94
-    rows = []
-    for label, value in fields:
-        rows.append(
-            f'<text class="label" x="{PANEL_X}" y="{row_y}">{label}</text>'
-            f'<text class="value" x="{VALUE_X}" y="{row_y}">{escape(value)}</text>'
-        )
-        row_y += TEXT_LINE_HEIGHT
-
-    terminal_user = profile.name.split(maxsplit=1)[0].lower()
+    terminal_user = settings.profile.name.split(maxsplit=1)[0].lower()
     title = f"{terminal_user}@github:~"
     return "".join((
         '<?xml version="1.0" encoding="UTF-8"?>',
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SVG_WIDTH} {SVG_HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc">',
-        f'<title id="title">{escape(profile.name)} terminal profile — {theme.name} theme</title>',
-        '<desc id="desc">ASCII portrait beside professional profile details</desc>',
+        f'<title id="title">{escape(settings.profile.name)} terminal profile — {theme.name} theme</title>',
+        '<desc id="desc">ASCII portrait and a terminal session describing current work and learning</desc>',
         f'<style>{theme_css(theme)}</style>',
-        f'<defs><clipPath id="content"><rect x="12" y="42" width="776" height="306" rx="4"/></clipPath></defs>',
-        f'<rect class="card" x=".5" y=".5" width="799" height="359" rx="10"/>',
+        '<defs><clipPath id="content"><rect x="12" y="42" width="776" height="306" rx="4"/></clipPath></defs>',
+        '<rect class="card" x=".5" y=".5" width="799" height="359" rx="10"/>',
         '<path class="header" d="M10 .5h780a9.5 9.5 0 0 1 9.5 9.5v35H.5V10A9.5 9.5 0 0 1 10 .5Z"/>',
         '<circle cx="18" cy="18" r="4.5" fill="#ff5f56"/><circle cx="34" cy="18" r="4.5" fill="#ffbd2e"/><circle cx="50" cy="18" r="4.5" fill="#27c93f"/>',
         f'<text class="muted" x="400" y="22" text-anchor="middle">{escape(title)}</text>',
         '<g clip-path="url(#content)">', portrait_markup(portrait_lines),
-        f'<text class="prompt" x="{PANEL_X}" y="{CONTENT_TOP + 25}">$ whoami</text>',
-        f'<text class="muted" x="{PANEL_X}" y="{CONTENT_TOP + 51}">{escape(profile.username)}</text>',
-        "".join(rows),
-        f'<text class="prompt" x="{PANEL_X}" y="{row_y + 18}">$</text>',
-        f'<rect class="cursor" x="{PANEL_X + 17}" y="{row_y + 7}" width="7" height="14" rx="1"/>',
-        '</g></svg>',
+        terminal_markup(settings.terminal), '</g></svg>',
     ))
 
 
-def write_svgs(portrait_lines: list[str], profile: Profile) -> list[Path]:
-    """Write both themes and a dark-theme legacy compatibility artifact."""
+def write_svgs(portrait_lines: list[str], settings: Settings) -> list[Path]:
     outputs = []
-    for theme in THEMES:
+    for theme in settings.themes:
         path = Path(f"{theme.name}.svg")
-        path.write_text(create_svg(portrait_lines, profile, theme), encoding="utf-8")
+        path.write_text(create_svg(portrait_lines, settings, theme), encoding="utf-8")
         outputs.append(path)
-    Path("profile.svg").write_text(create_svg(portrait_lines, profile, DARK), encoding="utf-8")
+    dark = next(theme for theme in settings.themes if theme.name == "dark")
+    Path("profile.svg").write_text(create_svg(portrait_lines, settings, dark), encoding="utf-8")
     return outputs
 
 
 def main() -> int:
-    outputs = write_svgs(read_portrait(), Profile.from_environment())
+    outputs = write_svgs(read_portrait(), load_settings())
     print("Generated: " + ", ".join(str(path.resolve()) for path in outputs))
     return 0
 

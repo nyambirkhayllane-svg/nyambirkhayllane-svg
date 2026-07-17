@@ -26,6 +26,7 @@ class AsciiConfig:
     contrast: float = 1.08
     sharpen: bool = True
     background_threshold: int | None = None
+    dither: bool = False
 
     def validate(self) -> None:
         if self.width <= 0:
@@ -91,9 +92,22 @@ def image_to_lines(image: Image.Image, palette: str) -> list[str]:
     ]
 
 
+def dither_image(image: Image.Image, levels: int) -> Image.Image:
+    """Apply optional Floyd–Steinberg dithering using the palette density."""
+    if levels < 2:
+        raise ValueError("Dithering requires at least two palette characters")
+    return image.quantize(
+        colors=levels,
+        method=Image.Quantize.MAXCOVERAGE,
+        dither=Image.Dither.FLOYDSTEINBERG,
+    ).convert("L")
+
+
 def convert_image(input_path: Path, output_path: Path, config: AsciiConfig) -> list[str]:
     """Run the complete conversion and write UTF-8 portrait text."""
     prepared = prepare_image(load_image(input_path, config.crop), config)
+    if config.dither:
+        prepared = dither_image(prepared, len(config.palette))
     lines = image_to_lines(prepared, config.palette)
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return lines
@@ -117,6 +131,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--contrast", type=float, default=1.08)
     parser.add_argument("--no-sharpen", action="store_true", help="disable subtle detail enhancement")
     parser.add_argument("--background-threshold", type=int, help="make pixels at or above this level blank")
+    parser.add_argument("--dither", action="store_true", help="use Floyd–Steinberg dithering for tonal detail")
     return parser
 
 
@@ -130,6 +145,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         contrast=args.contrast,
         sharpen=not args.no_sharpen,
         background_threshold=args.background_threshold,
+        dither=args.dither,
     )
     try:
         lines = convert_image(args.input, args.output, config)

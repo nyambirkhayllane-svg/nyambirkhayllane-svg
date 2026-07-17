@@ -1,100 +1,104 @@
 # Hi, I'm Khayllane Nyambir
 
-Full-stack developer from Mozambique building practical web applications and digital products with a clear purpose.
+Full-stack developer from Mozambique who likes understanding how software works beneath the interface—not only what users see, but how data, decisions, and edge cases fit together.
 
-I enjoy turning real problems into thoughtful, responsive experiences—from community tools that work with limited connectivity to polished platforms for businesses. I am currently open to internships, collaborative projects, and my first open-source contributions.
+I am looking for an internship, people to build with, and a first opportunity to contribute to open source.
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./light.svg" />
-    <img alt="Khayllane Nyambir terminal profile" src="./dark.svg" width="100%" />
+    <img alt="Khayllane Nyambir terminal profile describing current work and learning" src="./dark.svg" width="100%" />
   </picture>
 </p>
 
-## Selected Work
+## About Me
+
+I learn best by following a problem until I understand the decisions behind it. That curiosity has taken me from designing interfaces to thinking about authentication, data models, availability, and what should happen when the expected path fails.
+
+The projects below are different in size and purpose, but each began with someone or something real: communities affected by floods, a family business that needed visibility, or a technical question I could not stop thinking about.
+
+## Currently Building
+
+### Salon Booking System
+
+The salon is the setting; scheduling is the problem I wanted to understand.
+
+I started this private project because booking systems raised questions that simple interfaces could not answer: How is availability calculated? What happens when every worker is busy? How should appointments be stored? How do workers authenticate? How are conflicts prevented?
+
+Working through those questions is teaching me backend development, database design, authentication, and scheduling logic. It has also been one of my most mentally demanding projects—and that is exactly why I keep working on it.
+
+**Status:** In progress · Private repository
+
+## Projects with a Purpose
 
 ### [AjudaCheia](https://github.com/nyambirkhayllane-svg/ajuda-cheia)
 
-Community flood-response PWA built for Mozambique. It connects people requesting urgent help with volunteers and supports family reunification, including when connectivity is limited.
+AjudaCheia was our team project for the BIT Hackathon—our first hackathon, and the project that won it.
 
-- SOS requests with location, urgency, contact details, and specific needs
-- Volunteer filtering, help confirmation, and missing-person search
-- Installable, mobile-first experience with offline caching and local persistence
+The challenge was grounded in flooding in Mozambique. People can become isolated without knowing where to find help, while volunteers may not know where help is most urgent. We built AjudaCheia to connect those two sides through SOS requests, volunteer response, and family reunification, including support for limited connectivity.
+
+<p align="center">
+  <a href="https://ajuda-cheia.vercel.app">
+    <img src="./assets/projects/ajudacheia-home.png" width="92%" alt="AjudaCheia home page showing SOS, family search, and volunteer actions" />
+  </a><br>
+  <sub>AjudaCheia home page</sub>
+</p>
 
 `React` · `Vite` · `PWA` · `Offline-first`<br>
 [Repository](https://github.com/nyambirkhayllane-svg/ajuda-cheia) · [Live application](https://ajuda-cheia.vercel.app) · **Completed, with improvements ongoing**
 
 ### [Quinta Jazz Clube](https://github.com/nyambirkhayllane-svg/quinta-jazz-clube)
 
-Responsive event-venue platform designed to present services, showcase the space, and guide prospective clients toward requesting a quotation.
+A family member owns Quinta Jazz Clube, an event venue. I built this platform to help the business gain visibility and present the quality of its services online—not as a hypothetical exercise, but as software for a real business.
 
-- Interactive event gallery, service presentation, FAQ, and contact journey
-- Responsive navigation and section-aware browsing
-- Motion-led interface with reusable, validated form components
+The experience includes an interactive gallery, service presentation, FAQ, responsive navigation, and a clear path for prospective clients to request a quotation.
 
 `Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Framer Motion`<br>
 [Repository](https://github.com/nyambirkhayllane-svg/quinta-jazz-clube) · **Completed**
 
 ### [Personal Portfolio](https://github.com/nyambirkhayllane-svg/My-portfolio)
 
-Personal portfolio for presenting my work, skills, experience, and contact information in a responsive, theme-aware interface.
+A simple home for presenting my work, documenting my journey, sharing what I am building, and making my growth visible over time.
 
 `Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `Framer Motion`<br>
 [Repository](https://github.com/nyambirkhayllane-svg/My-portfolio) · **Completed**
 
-### Salon Booking System
-
-Private full-stack project currently in development. More details will be shared when it is ready for a public release.
-
-**In progress**
-
 ### [Terminal Profile Generator](https://github.com/nyambirkhayllane-svg/nyambirkhayllane-svg)
 
-Python tooling that converts a photograph into ASCII art and generates compact, accessible SVG profile banners with automatic light and dark themes.
+For a long time, GitHub intimidated me. Building this profile—starting with a photograph, turning it into ASCII, and generating responsive SVG themes—was how I began changing that relationship.
 
-`Python` · `Pillow` · `SVG` · **Completed**
+The animation is a small detail. The real milestone is that I now maintain my work here and treat GitHub as part of my software engineering journey.
+
+`Python` · `Pillow` · `SVG` · **Completed**<br>
+[Generator documentation](./docs/generator.md)
 
 ## Technologies
 
-**Building with**
+| Area | Technologies |
+| :-- | :-- |
+| Frontend | React, Next.js, TypeScript, JavaScript, Tailwind CSS |
+| Backend | Node.js |
+| Databases | PostgreSQL, MySQL |
+| Tools | Python, Git, GitHub, Vite |
 
-![Next.js](https://img.shields.io/badge/Next.js-0d1117?style=flat-square&logo=nextdotjs&logoColor=ffffff)
-![React](https://img.shields.io/badge/React-0d1117?style=flat-square&logo=react&logoColor=61dafb)
-![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=3178c6)
-![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=flat-square&logo=javascript&logoColor=f7df1e)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0d1117?style=flat-square&logo=tailwindcss&logoColor=06b6d4)
+### Currently Learning
 
-**Tools**
-
-![Python](https://img.shields.io/badge/Python-0d1117?style=flat-square&logo=python&logoColor=58a6ff)
-![Git](https://img.shields.io/badge/Git-0d1117?style=flat-square&logo=git&logoColor=f05032)
-![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=ffffff)
-![Vite](https://img.shields.io/badge/Vite-0d1117?style=flat-square&logo=vite&logoColor=646cff)
+I am currently strengthening my frontend development skills by building and refining real interfaces.
 
 ## GitHub Activity
 
 <p align="center">
-  <img height="150" src="https://github-readme-stats.vercel.app/api?username=nyambirkhayllane-svg&show_icons=true&hide_border=true&theme=transparent" alt="Khayllane's GitHub statistics" />
-  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nyambirkhayllane-svg&layout=compact&hide_border=true&theme=transparent" alt="Khayllane's most used languages" />
+  <img height="150" src="https://github-readme-stats.vercel.app/api?username=nyambirkhayllane-svg&show_icons=true&hide_border=true&theme=transparent" alt="Khayllane's GitHub activity overview" />
+  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nyambirkhayllane-svg&layout=compact&hide_border=true&theme=transparent" alt="Languages represented in Khayllane's public repositories" />
 </p>
 
 ## Let's Connect
 
-I am interested in internships, learning through collaboration, and contributing to open-source projects.
+If you are working on something useful, have an internship opportunity, or welcome first-time open-source contributors, I would be glad to hear from you.
 
-[LinkedIn](https://www.linkedin.com/in/khayllane-nyambir-7a748820a/) · [GitHub](https://github.com/nyambirkhayllane-svg) · [Email](mailto:nyambirkhayllane@gmail.com) · Mozambique
-
-<details>
-<summary>How the terminal banner is generated</summary>
-
-The banner is generated locally with Python and Pillow:
-
-```bash
-python photo_to_ascii.py
-python generate_profile.py
-```
-
-The first command converts `photo.jpg` into `portrait.txt`. The second generates `dark.svg`, `light.svg`, and the backward-compatible `profile.svg`. Profile text can be overridden with `PROFILE_NAME`, `PROFILE_USERNAME`, `PROFILE_ROLE`, `PROFILE_LOCATION`, and `PROFILE_EMAIL` environment variables.
-
-</details>
+<p>
+  <a href="https://github.com/nyambirkhayllane-svg"><img src="https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=white" alt="Khayllane on GitHub" /></a>
+  <a href="https://www.linkedin.com/in/khayllane-nyambir-7a748820a/"><img src="https://img.shields.io/badge/LinkedIn-0a66c2?style=flat-square&logo=linkedin&logoColor=white" alt="Khayllane on LinkedIn" /></a>
+  <a href="mailto:nyambirkhayllane@gmail.com"><img src="https://img.shields.io/badge/Email-6b7280?style=flat-square&logo=gmail&logoColor=white" alt="Email Khayllane" /></a>
+</p>

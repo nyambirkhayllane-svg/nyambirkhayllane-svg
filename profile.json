@@ -1,0 +1,41 @@
+{
+  "profile": {
+    "name": "Khayllane Nyambir",
+    "username": "nyambirkhayllane-svg",
+    "role": "Full-stack Developer",
+    "location": "Mozambique",
+    "email": "nyambirkhayllane@gmail.com"
+  },
+  "terminal": [
+    ["whoami", "Khayllane Nyambir — Full-stack Developer"],
+    ["current_focus", "Building software that solves real problems."],
+    ["current_project", "Salon Booking System"],
+    ["learning", "Frontend Development"],
+    ["git status", "On branch: keep-learning"]
+  ],
+  "links": {
+    "github": "https://github.com/nyambirkhayllane-svg",
+    "linkedin": "https://www.linkedin.com/in/khayllane-nyambir-7a748820a/",
+    "email": "mailto:nyambirkhayllane@gmail.com"
+  },
+  "themes": {
+    "dark": {
+      "background": "#0d1117",
+      "header": "#161b22",
+      "primary": "#e6edf3",
+      "portrait": "#c9d1d9",
+      "accent": "#58a6ff",
+      "muted": "#8b949e",
+      "border": "#30363d"
+    },
+    "light": {
+      "background": "#ffffff",
+      "header": "#f6f8fa",
+      "primary": "#24292f",
+      "portrait": "#24292f",
+      "accent": "#0969da",
+      "muted": "#57606a",
+      "border": "#d0d7de"
+    }
+  }
+}
